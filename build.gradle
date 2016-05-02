@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'net.revenant.revenant'
+
+repositories {
+    mavenCentral()
+	
+	flatDir {
+		dirs 'lib'
+	}
+}
+
+jar {
+    baseName = 'Revenant'
+    version =  '1.0.0'
+}
+
+dependencies {
+    compile files('lib/lwjgl_3/jar/lwjgl.jar')
+    compile files('lib/AJGL/AJGL-1.0.0.jar')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
